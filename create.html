@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 카드뉴스 메이커 - 새 프로젝트</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/button.css">
+    <link rel="stylesheet" href="css/components/form.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+    <link rel="stylesheet" href="css/create.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 사이드바 내비게이션 -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.svg" alt="AI 카드뉴스 메이커 로고" class="sidebar-logo">
+                <h1 class="sidebar-title">AI 카드뉴스</h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path>
+                        </svg>
+                        <span>대시보드</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="create.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                        </svg>
+                        <span>새 프로젝트</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                        </svg>
+                        <span>설정</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.1h-15V5h15v14.1z"></path>
+                        </svg>
+                        <span>분석</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" id="logout-btn" class="btn outline-btn btn-block">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+                    </svg>
+                    <span>로그아웃</span>
+                </a>
+            </div>
+        </nav>
+        
+        <!-- 메인 콘텐츠 영역 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1>새 카드뉴스 프로젝트</h1>
+                    <p>프로젝트 정보와 내용을 입력하여 AI 기반 카드뉴스를 생성하세요.</p>
+                </div>
+                
+                <div class="user-profile">
+                    <span id="user-name">사용자 이름</span>
+                    <div class="user-avatar">
+                        <span id="user-initial">U</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-container">
+                <!-- 프로젝트 생성 단계 -->
+                <div class="creation-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <div class="step-title">프로젝트 정보</div>
+                            <div class="step-desc">기본 정보 입력</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <div class="step-title">템플릿 선택</div>
+                            <div class="step-desc">디자인 템플릿 설정</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <div class="step-title">AI 옵션</div>
+                            <div class="step-desc">AI 생성 매개변수 설정</div>
+                        </div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <div class="step-title">생성 및 검토</div>
+                            <div class="step-desc">카드뉴스 생성 및 초안 검토</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 단계별 폼 컨테이너 -->
+                <div class="step-container">
+                    <!-- 1단계: 프로젝트 정보 -->
+                    <div class="step-content active" id="step-1">
+                        <div class="form-card">
+                            <h2 class="form-title">프로젝트 기본 정보</h2>
+                            <form id="project-info-form">
+                                <div class="form-group">
+                                    <label for="project-title">프로젝트 제목</label>
+                                    <input type="text" id="project-title" name="project-title" placeholder="프로젝트 제목을 입력하세요" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-description">프로젝트 설명</label>
+                                    <textarea id="project-description" name="project-description" placeholder="프로젝트에 대한 간략한 설명을 입력하세요" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group form-group-half">
+                                        <label for="project-category">카테고리</label>
+                                        <select id="project-category" name="project-category" required>
+                                            <option value="" disabled selected>카테고리 선택</option>
+                                            <option value="healthcare">건강/의료</option>
+                                            <option value="finance">금융/경제</option>
+                                            <option value="marketing">홍보/마케팅</option>
+                                            <option value="education">교육/학습</option>
+                                            <option value="event">이벤트/행사</option>
+                                            <option value="notice">공지/안내</option>
+                                            <option value="pr">기업/PR</option>
+                                            <option value="other">기타</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group form-group-half">
+                                        <label for="project-priority">우선순위</label>
+                                        <select id="project-priority" name="project-priority">
+                                            <option value="normal" selected>보통</option>
+                                            <option value="high">높음</option>
+                                            <option value="urgent">긴급</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <hr class="form-divider">
+                                
+                                <h3 class="form-subtitle">주제 및 키워드</h3>
+                                <div class="form-group">
+                                    <label for="project-topic">주제</label>
+                                    <input type="text" id="project-topic" name="project-topic" placeholder="카드뉴스의 주요 주제를 입력하세요" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-keywords">키워드</label>
+                                    <input type="text" id="project-keywords" name="project-keywords" placeholder="관련 키워드를 입력하세요 (쉼표로 구분)" required>
+                                    <p class="form-helper">키워드는 쉼표(,)로 구분하여 입력해 주세요. 예: 건강검진, 건강관리, 예방접종</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-content">상세 내용</label>
+                                    <textarea id="project-content" name="project-content" placeholder="카드뉴스에 포함할 상세 내용을 입력하세요. AI가 이 내용을 바탕으로 카드뉴스를 생성합니다." rows="6" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>참고 자료</label>
+                                    <div class="file-upload">
+                                        <input type="file" id="reference-files" name="reference-files" multiple>
+                                        <label for="reference-files" class="file-upload-label">
+                                            <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"></path>
+                                            </svg>
+                                            <span>파일 선택 또는 드래그 앤 드롭</span>
+                                        </label>
+                                        <p class="form-helper">참고 자료 파일을 추가할 수 있습니다. (최대 5개, 파일당 10MB 이하)</p>
+                                        <div id="file-list" class="file-list"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn secondary-btn" onclick="window.location.href='dashboard.html'">취소</button>
+                            <button class="btn primary-btn next-step" data-next="2">다음 단계</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 2단계: 템플릿 선택 -->
+                    <div class="step-content" id="step-2">
+                        <div class="form-card">
+                            <h2 class="form-title">템플릿 선택</h2>
+                            <p class="form-description">카드뉴스 디자인 템플릿을 선택하세요. 템플릿은 언제든지 변경할 수 있습니다.</p>
+                            
+                            <div class="template-categories">
+                                <button class="template-category active" data-category="all">전체</button>
+                                <button class="template-category" data-category="healthcare">건강/의료</button>
+                                <button class="template-category" data-category="finance">금융/경제</button>
+                                <button class="template-category" data-category="marketing">홍보/마케팅</button>
+                                <button class="template-category" data-category="education">교육/학습</button>
+                                <button class="template-category" data-category="other">기타</button>
+                            </div>
+                            
+                            <div class="templates-grid">
+                                <!-- 템플릿 1 -->
+                                <div class="template-card" data-template="template1" data-category="healthcare education">
+                                    <div class="template-preview">
+                                        <img src="assets/images/templates/template1.jpg" alt="템플릿 1">
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">기본 정보형</h3>
+                                        <p class="template-desc">정보 전달에 최적화된 깔끔한 레이아웃</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template1" value="template1">
+                                        <label for="template1">선택</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 템플릿 2 -->
+                                <div class="template-card" data-template="template2" data-category="marketing finance">
+                                    <div class="template-preview">
+                                        <img src="assets/images/templates/template2.jpg" alt="템플릿 2">
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">비즈니스 프로</h3>
+                                        <p class="template-desc">전문적이고 세련된 비즈니스 스타일</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template2" value="template2">
+                                        <label for="template2">선택</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 템플릿 3 -->
+                                <div class="template-card" data-template="template3" data-category="marketing education other">
+                                    <div class="template-preview">
+                                        <img src="assets/images/templates/template3.jpg" alt="템플릿 3">
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">모던 그래픽</h3>
+                                        <p class="template-desc">현대적인 그래픽 요소가 돋보이는 디자인</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template3" value="template3">
+                                        <label for="template3">선택</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 템플릿 4 -->
+                                <div class="template-card" data-template="template4" data-category="healthcare other">
+                                    <div class="template-preview">
+                                        <div class="no-preview">미리보기 준비 중</div>
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">헬스케어 스페셜</h3>
+                                        <p class="template-desc">의료 정보 전달에 특화된 템플릿</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template4" value="template4">
+                                        <label for="template4">선택</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 템플릿 5 -->
+                                <div class="template-card" data-template="template5" data-category="finance marketing">
+                                    <div class="template-preview">
+                                        <div class="no-preview">미리보기 준비 중</div>
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">금융 인포그래픽</h3>
+                                        <p class="template-desc">데이터 시각화에 최적화된 템플릿</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template5" value="template5">
+                                        <label for="template5">선택</label>
+                                    </div>
+                                </div>
+                                
+                                <!-- 템플릿 6 -->
+                                <div class="template-card" data-template="template6" data-category="marketing education">
+                                    <div class="template-preview">
+                                        <div class="no-preview">미리보기 준비 중</div>
+                                    </div>
+                                    <div class="template-info">
+                                        <h3 class="template-title">타임라인 스토리</h3>
+                                        <p class="template-desc">시간 순서에 따른 정보 전달에 적합</p>
+                                    </div>
+                                    <div class="template-select">
+                                        <input type="radio" name="template" id="template6" value="template6">
+                                        <label for="template6">선택</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="custom-template">
+                                <div>
+                                    <h3>커스텀 템플릿</h3>
+                                    <p>기존 템플릿이 아닌 새로운 디자인으로 시작합니다.</p>
+                                </div>
+                                <button class="btn light-btn" id="custom-template-btn">
+                                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                    </svg>
+                                    커스텀 디자인 시작하기
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn secondary-btn prev-step" data-prev="1">이전 단계</button>
+                            <button class="btn primary-btn next-step" data-next="3">다음 단계</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 3단계: AI 옵션 -->
+                    <div class="step-content" id="step-3">
+                        <div class="form-card">
+                            <h2 class="form-title">AI 생성 옵션</h2>
+                            <p class="form-description">AI 카드뉴스 생성 옵션을 설정하세요. 이 설정은 AI가 생성하는 콘텐츠 스타일과 형식에 영향을 줍니다.</p>
+                            
+                            <div class="form-group">
+                                <label for="card-count">카드 수</label>
+                                <div class="range-control">
+                                    <input type="range" id="card-count" name="card-count" min="3" max="10" value="5">
+                                    <div class="range-value"><span id="card-count-value">5</span>장</div>
+                                </div>
+                                <p class="form-helper">카드뉴스에 포함될 카드 수를 선택하세요. (3~10장)</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="content-style">콘텐츠 스타일</label>
+                                <select id="content-style" name="content-style">
+                                    <option value="informative" selected>정보 전달형</option>
+                                    <option value="storytelling">스토리텔링형</option>
+                                    <option value="promotional">홍보/마케팅형</option>
+                                    <option value="educational">교육/학습형</option>
+                                    <option value="news">뉴스/소식형</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tone">톤앤매너</label>
+                                <select id="tone" name="tone">
+                                    <option value="professional">전문적/격식적</option>
+                                    <option value="casual" selected>일상적/친근한</option>
+                                    <option value="humorous">유머러스한</option>
+                                    <option value="serious">진지한</option>
+                                    <option value="enthusiastic">열정적인</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group form-group-half">
+                                    <label for="image-style">이미지 스타일</label>
+                                    <select id="image-style" name="image-style">
+                                        <option value="photo">사진 위주</option>
+                                        <option value="illustration" selected>일러스트 위주</option>
+                                        <option value="minimalist">미니멀리스트</option>
+                                        <option value="graphic">그래픽 디자인</option>
+                                        <option value="mixed">혼합형</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group form-group-half">
+                                    <label for="color-scheme">색상 스키마</label>
+                                    <select id="color-scheme" name="color-scheme">
+                                        <option value="brand">브랜드 색상</option>
+                                        <option value="vibrant">밝고 생동감 있는</option>
+                                        <option value="pastel">파스텔톤</option>
+                                        <option value="monochrome">모노크롬</option>
+                                        <option value="warm">따뜻한 색상</option>
+                                        <option value="cool">차가운 색상</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <hr class="form-divider">
+                            
+                            <h3 class="form-subtitle">고급 설정</h3>
+                            
+                            <div class="form-group">
+                                <label>텍스트 양</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="text-amount-minimal" name="text-amount" value="minimal">
+                                        <label for="text-amount-minimal">최소한</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="text-amount-balanced" name="text-amount" value="balanced" checked>
+                                        <label for="text-amount-balanced">균형 있게</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="text-amount-detailed" name="text-amount" value="detailed">
+                                        <label for="text-amount-detailed">상세하게</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>이미지 비율</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="image-ratio-text-focused" name="image-ratio" value="text-focused">
+                                        <label for="image-ratio-text-focused">텍스트 위주</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="image-ratio-balanced" name="image-ratio" value="balanced" checked>
+                                        <label for="image-ratio-balanced">균형 있게</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="image-ratio-image-focused" name="image-ratio" value="image-focused">
+                                        <label for="image-ratio-image-focused">이미지 위주</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="include-statistics" name="include-statistics">
+                                    <label for="include-statistics">통계 및 데이터 시각화 포함</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="include-cta" name="include-cta" checked>
+                                    <label for="include-cta">행동 유도(CTA) 요소 포함</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="include-sources" name="include-sources" checked>
+                                    <label for="include-sources">출처 및 참고 정보 포함</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn secondary-btn prev-step" data-prev="2">이전 단계</button>
+                            <button class="btn primary-btn next-step" data-next="4">다음 단계</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 4단계: 생성 및 검토 -->
+                    <div class="step-content" id="step-4">
+                        <div class="form-card">
+                            <h2 class="form-title">카드뉴스 생성 및 검토</h2>
+                            <p class="form-description">입력한 내용을 바탕으로 AI가 카드뉴스를 생성합니다. 이 과정은 약 1~2분 정도 소요됩니다.</p>
+                            
+                            <div id="generation-progress" class="generation-progress">
+                                <div class="progress-container">
+                                    <div class="progress-bar"></div>
+                                </div>
+                                <div class="progress-status">AI가 콘텐츠를 생성 중입니다... (<span id="progress-percentage">0</span>%)</div>
+                                <div id="generation-log" class="generation-log">
+                                    <div class="log-item">프로젝트 정보 분석 중...</div>
+                                </div>
+                            </div>
+                            
+                            <div id="generation-result" class="generation-result" style="display: none;">
+                                <div class="result-summary">
+                                    <h3>카드뉴스 생성 완료!</h3>
+                                    <p>AI가 생성한 카드뉴스 초안이 준비되었습니다. 생성된 결과를 확인하고 필요한 경우 수정할 수 있습니다.</p>
+                                </div>
+                                
+                                <div class="preview-container">
+                                    <div class="preview-carousel">
+                                        <!-- 미리보기 슬라이드는 JavaScript로 동적 생성 -->
+                                        <div class="preview-placeholder">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></path>
+                                            </svg>
+                                            <span>미리보기 준비 중...</span>
+                                        </div>
+                                    </div>
+                                    <div class="preview-controls">
+                                        <button class="preview-arrow prev-card">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                                            </svg>
+                                        </button>
+                                        <div class="preview-indicator">
+                                            <span id="current-card">1</span> / <span id="total-cards">5</span>
+                                        </div>
+                                        <button class="preview-arrow next-card">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="result-actions">
+                                    <button class="btn secondary-btn" id="regenerate-btn">
+                                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+                                        </svg>
+                                        재생성
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn secondary-btn prev-step" data-prev="3">이전 단계</button>
+                            <button class="btn primary-btn" id="generate-btn">카드뉴스 다운로드</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/creator.js"></script>
+    <script src="js/auth-check.js"></script>
+
+</body>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Background -->
+  <rect width="300" height="200" rx="10" ry="10" fill="#ffffff" />
+  
+  <!-- Main card shape -->
+  <rect x="75" y="50" width="150" height="100" rx="12" ry="12" fill="#3282F6" />
+  
+  <!-- Card text lines simplified -->
+  <rect x="95" y="75" width="110" height="8" rx="4" ry="4" fill="white" />
+  <rect x="95" y="95" width="85" height="8" rx="4" ry="4" fill="white" />
+  <rect x="95" y="115" width="60" height="8" rx="4" ry="4" fill="white" />
+  
+  <!-- AI element (circuit-like pattern) -->
+  <circle cx="190" cy="70" r="12" fill="#FF5A5A" />
+  <path d="M183 70 h14 M190 63 v14" stroke="white" stroke-width="3" stroke-linecap="round" />
+  
+  <!-- Text -->
+  <text x="150" y="175" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#333333">카드AI</text>
+  <text x="150" y="195" font-family="Arial, sans-serif" font-size="16" font-style="italic" text-anchor="middle" fill="#666666">KardAI</text>
+</svg>

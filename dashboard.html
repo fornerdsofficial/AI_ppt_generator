@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 카드뉴스 메이커 - 대시보드</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/components/button.css">
+    <link rel="stylesheet" href="css/components/card.css">
+    <link rel="stylesheet" href="css/components/navigation.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 사이드바 내비게이션 -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.svg" alt="AI 카드뉴스 메이커 로고" class="sidebar-logo">
+                <h1 class="sidebar-title">AI 카드뉴스</h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="dashboard.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path>
+                        </svg>
+                        <span>대시보드</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="create.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                        </svg>
+                        <span>새 프로젝트</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                        </svg>
+                        <span>설정</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2.5 2.1h-15V5h15v14.1z"></path>
+                        </svg>
+                        <span>분석</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <a href="#" id="logout-btn" class="btn outline-btn btn-block">
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"></path>
+                    </svg>
+                    <span>로그아웃</span>
+                </a>
+            </div>
+        </nav>
+        
+        <!-- 메인 콘텐츠 영역 -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-title">
+                    <h1>프로젝트 대시보드</h1>
+                    <p>진행 중인 프로젝트를 관리하고 새 프로젝트를 시작하세요.</p>
+                </div>
+                
+                <div class="user-profile">
+                    <span id="user-name">사용자 이름</span>
+                    <div class="user-avatar">
+                        <span id="user-initial">U</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="content-container">
+                <!-- 상단 요약 카드 -->
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"></path>
+                            </svg>
+                        </div>
+                        <div class="summary-info">
+                            <h3 class="summary-count" id="total-projects">9</h3>
+                            <p class="summary-label">전체 프로젝트</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                            </svg>
+                        </div>
+                        <div class="summary-info">
+                            <h3 class="summary-count" id="completed-projects">5</h3>
+                            <p class="summary-label">완료된 프로젝트</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                            </svg>
+                        </div>
+                        <div class="summary-info">
+                            <h3 class="summary-count" id="pending-projects">3</h3>
+                            <p class="summary-label">검토 중 프로젝트</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                            </svg>
+                        </div>
+                        <div class="summary-info">
+                            <h3 class="summary-count" id="draft-projects">1</h3>
+                            <p class="summary-label">초안 프로젝트</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 프로젝트 필터 탭 -->
+                <div class="project-filters">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">전체</button>
+                        <button class="filter-tab" data-filter="in-progress">진행 중</button>
+                        <button class="filter-tab" data-filter="review">검토 중</button>
+                        <button class="filter-tab" data-filter="completed">완료</button>
+                        <button class="filter-tab" data-filter="draft">초안</button>
+                    </div>
+                    
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="프로젝트 검색...">
+                        <button class="search-btn">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 프로젝트 그리드 -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- 프로젝트 카드는 JavaScript로 동적 생성됩니다 -->
+                </div>
+                
+                <!-- 새 프로젝트 플로팅 버튼 -->
+                <a href="create.html" class="fab-button">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/auth-check.js"></script>
+
+</body>
+</html>
